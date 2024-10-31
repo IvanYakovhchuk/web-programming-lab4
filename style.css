@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+}
+
+.main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3vw 9vw;
+}
+
+.header img{
+    height: 2.5vw;
+}
+
+.header i{
+    font-size: 2vw;
+    padding: 0.5vw;
+    border-radius: 0.5vw;
+}
+
+.header i:hover{
+    background-color: rgb(231, 231, 231)
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background: linear-gradient(to bottom, #212121 10%, #3b3b3b 10%);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6vw;
+    line-height: 3;
+    text-align: center;
+    color: #ffffff;
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 3;
+}
+
+.dropdown-list a{
+    text-align: left;
+    padding-left: 2vw;
+    color: #ffffff;
+}
+
+input[type="checkbox"]:checked ~ .dropdown-list {
+    width: 20vw;
+}
+
+input[type="checkbox"]:checked ~ .main-container {
+    flex: 0.8;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    flex: 8;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(to bottom, #ecca06 30%, #0a1a43 30%);
+}
+
+.footer{
+    display: flex;
+    flex: 1;
+    padding: 3vw 32vw;
+    text-align: center;
+    line-height: 1.7;
+    color: #ffffff;
+    font-size: 1.2vw;
+    background-color: rgb(39, 39, 39);
+}
+
+.images{
+    display: flex;
+    flex-direction: row;
+    height: 25vw;
+    justify-content: center;
+    margin-top: 3vw;
+}
+
+.img-container{
+    width: 13vw;
+    height: 17vw;
+    margin: 0.7vw;
+}
+
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0.5vw 0.5vw 2vw rgba(0, 0, 0, 0.5);
+}
+
+#img2, #img4{
+    align-self: end;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    margin: 2vw 0;
+    width: 90%;
+}
+
+.card-inner{
+    width: 25%;
+    height: 25vw;
+    margin: 2vw 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1vw;
+    background-color: #ffffff;
+    border-radius: 2vw;
+    cursor: pointer;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.card-front{
+    padding: 0.8vw;
+    text-align: center;
+}
+
+.card-back{
+    padding: 0.8vw;
+    text-align: justify;
+    transform: rotateY(180deg);
+}
+
+.card-header{
+    font-family: 'Open+Sans', sans-serif;
+    font-style: normal;
+    font-size: 1.3vw;
+    letter-spacing: 0.05vw;
+}
+
+.card-ref{
+    color: rgb(42, 42, 42);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.1vw;
+    text-decoration: none;
+    border-bottom: 0.1vw solid rgb(42, 42, 42);
+    padding-bottom: 0.2vw;
+}
+
+.flip-checkbox:checked + .card-inner {
+    transform: rotateY(180deg);
+}
+
+.icon-container {
+    position: relative;
+    width: 6vw;
+    height: 6vw;
+    justify-self: center;
+}
+
+.icon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFD700;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.icon-overlay {
+    position: absolute;
+    top: -0.5vw;
+    left: 0.5vw;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #FFE066;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.icon-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2vw;
+    z-index: 2;
+}
