@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: auto;
+    width: 100vw;
+}
+
+.main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3dvh 4dvh;
+}
+
+.header img{
+    height: 2.5dvh;
+}
+
+.header i{
+    font-size: 2dvh;
+    padding: 0.5dvh;
+    border-radius: 0.5dvh;
+}
+
+.header i:hover{
+    background-color: rgb(231, 231, 231)
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background: linear-gradient(to bottom, #212121 10%, #3b3b3b 10%);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5dvh;
+    line-height: 4.4;
+    text-align: center;
+    color: #ffffff;
+    width: 0;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 3;
+}
+
+.dropdown-list a{
+    text-align: left;
+    padding-left: 2dvh;
+    color: #ffffff;
+}
+
+input[type="checkbox"]:checked ~ .dropdown-list {
+    width: 20dvh;
+}
+
+input[type="checkbox"]:checked ~ .main-container {
+    flex: 0.8;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3dvh 0;
+    background: linear-gradient(to bottom, #ecca06 30%, #0a1a43 30%);
+}
+
+.footer{
+    display: flex;
+    flex: 1;
+    padding: 3dvh 2dvh;
+    align-items: center;
+    text-align: center;
+    line-height: 1.7;
+    color: #ffffff;
+    font-size: 2dvh;
+    background-color: rgb(39, 39, 39)
+}
+
+.images{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: start;
+    gap: 2dvh;
+}
+
+.img-container{
+    width: 40dvh;
+    height: 55dvh;
+    margin: 0.7dvh;
+}
+
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0.5dvh 0.5dvh 2dvh rgba(0, 0, 0, 0.5);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    width: 90%;
+    padding-top: 2dvh;
+}
+
+.card-inner{
+    width: 85%;
+    height: 35dvh;
+    margin: 2dvh 1.5dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2.1dvh;
+    background-color: #ffffff;
+    border-radius: 2dvh;
+    cursor: pointer;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.card-front{
+    padding: 1.2dvh;
+    text-align: center;
+}
+
+.card-back{
+    padding: 2dvh;
+    text-align: justify;
+    transform: rotateY(180deg);
+}
+
+.card-header{
+    font-family: 'Open+Sans', sans-serif;
+    font-style: normal;
+    font-size: 2.5dvh;
+    letter-spacing: 0.05dvh;
+}
+
+.card-ref{
+    color: rgb(42, 42, 42);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.1dvh;
+    text-decoration: none;
+    border-bottom: 0.1dvh solid rgb(42, 42, 42);
+    padding-bottom: 0.2dvh;
+}
+
+.flip-checkbox:checked + .card-inner {
+    transform: rotateY(180deg);
+}
+
+.icon-container {
+    position: relative;
+    width: 6dvh;
+    height: 6dvh;
+    justify-self: center;
+}
+
+.icon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFD700;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.icon-overlay {
+    position: absolute;
+    top: -0.5dvh;
+    left: 0.5dvh;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #FFE066;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.icon-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2dvh;
+    z-index: 2;
+}
